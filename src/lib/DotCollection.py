@@ -30,6 +30,7 @@ class DotCollection:
 
     def addDot(self, d):
         self.arrOfDot.append(d)
+        self.nDots += 1
 
     # Setter
     def setClosestIndexes(self, idx1, idx2):
@@ -57,6 +58,9 @@ class DotCollection:
 
     def getArrOfDot(self):
         return self.arrOfDot
+    
+    def getNDots(self) :
+        return self.nDots
 
     def getShortestDistance(self):
         return self.shortest_distance

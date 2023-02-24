@@ -18,16 +18,24 @@ if __name__ == "__main__":
     listOfDotDnC.copy(listOfDotBF)
     listOfDotBF.printArr()
     ## Calculate Shortest Distance, time, etc ##
-    # Divide and Conquer
-
     # Brute Force
     algorithm.bruteForceShortestDistance(listOfDotBF)
     print(listOfDotBF.getNStep())
     print(listOfDotBF.getSolvingTime(), "s")
+    
+    # Divide and Conquer
+    algorithm.divideAndConquerShortestDistance(listOfDotDnC)
+    print(listOfDotDnC.getNStep())
+    print(listOfDotDnC.getSolvingTime(), "s")
+
     ### Output ###
 
     ## Sepasang Titik Terdekat dan Jaraknya ##
     # Divide and Conquer
+    print("Divide and Conquer")
+    print("Closest Points: ", "(", listOfDotDnC.getClosestPoints()
+          [0].getCoordinate(), ",", listOfDotDnC.getClosestPoints()[1].getCoordinate(), ")")
+    print("Distance:", listOfDotDnC.getShortestDistance())
 
     # Brute Force
     print("Brute Force")
@@ -37,6 +45,8 @@ if __name__ == "__main__":
 
     ## Banyak Operasi Perhitungan Rumus Euclidean ##
     # Divide and Conquer
+    print("N perhitungan")
+    print("Divide and Conquer", listOfDotDnC.getNStep())
 
     # Brute Force
     print("N perhitungan")
@@ -45,9 +55,11 @@ if __name__ == "__main__":
     ## Execution Time (Spesifikasikan komputer yang digunakan) ##
     # Divide and Conquer
     print("Execution Time")
-    print("Brute Force:", listOfDotBF.getSolvingTime(), "s")
-
+    print("Divide and Conquer:", listOfDotDnC.getSolvingTime(), "s")
+    
     # Brute Force
+    print("Execution Time")
+    print("Brute Force:", listOfDotBF.getSolvingTime(), "s")
 
     ## Visualisasi titik ##
     if (nDim == 3):  # 3D
