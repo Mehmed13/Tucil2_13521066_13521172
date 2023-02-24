@@ -1,5 +1,6 @@
 from lib import DotCollection
 from lib import Dot
+from lib import algorithm
 
 
 if __name__ == "__main__":
@@ -10,10 +11,9 @@ if __name__ == "__main__":
     ### Process ###
 
     ## Generating Dots ##
-    listOfDot = list()  # default aja mungkin nanti bisa disesuaikan dengan class DotCollection
-    for i in range(n):
-        listOfDot.append(Dot.Dot(nDim))
-    CDot = DotCollection.DotCollection(n, listOfDot)
+    listOfDot = DotCollection.DotCollection(n,nDim)
+    algorithm.sortArrOfDot(listOfDot.getArrOfDot())
+    listOfDot.printArr()
 
     ## Calculate Shortest Distance, time, etc ##
     # Divide and Conquer
