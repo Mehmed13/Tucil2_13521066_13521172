@@ -11,29 +11,41 @@ if __name__ == "__main__":
     ### Process ###
 
     ## Generating Dots ##
-    listOfDot = DotCollection.DotCollection(n,nDim)
-    algorithm.sortArrOfDot(listOfDot.getArrOfDot())
-    listOfDot.printArr()
-
+    listOfDotDnC = DotCollection.DotCollection(n, nDim)
+    # algorithm.sortArrOfDot(listOfDotDnC.getArrOfDot())
+    listOfDotDnC.printArr()
+    listOfDotBF = DotCollection.DotCollection()
+    listOfDotDnC.copy(listOfDotBF)
+    listOfDotBF.printArr()
     ## Calculate Shortest Distance, time, etc ##
     # Divide and Conquer
 
     # Brute Force
-
+    algorithm.bruteForceShortestDistance(listOfDotBF)
+    print(listOfDotBF.getNStep())
+    print(listOfDotBF.getSolvingTime(), "s")
     ### Output ###
 
     ## Sepasang Titik Terdekat dan Jaraknya ##
     # Divide and Conquer
 
     # Brute Force
+    print("Brute Force")
+    print("Closest Points: ", "(", listOfDotBF.getClosestPoints()
+          [0].getCoordinate(), ",", listOfDotBF.getClosestPoints()[1].getCoordinate(), ")")
+    print("Distance:", listOfDotBF.getShortestDistance())
 
     ## Banyak Operasi Perhitungan Rumus Euclidean ##
     # Divide and Conquer
 
     # Brute Force
+    print("N perhitungan")
+    print("Brute Force", listOfDotBF.getNStep())
 
     ## Execution Time (Spesifikasikan komputer yang digunakan) ##
     # Divide and Conquer
+    print("Execution Time")
+    print("Brute Force:", listOfDotBF.getSolvingTime(), "s")
 
     # Brute Force
 
