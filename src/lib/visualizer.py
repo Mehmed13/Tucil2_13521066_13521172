@@ -13,4 +13,9 @@ def show2D(arrOfDot):
 
 def show1D(arrOfDot):
     # Fungsi untuk menampilkan visualisasi 1 dimensi dari titik-titik
-    pass
+    ar = [1, 2, 3, 8, 4, 5]
+    plt.plot(ar)
+    plt.show()
+
+
+show1D(1)

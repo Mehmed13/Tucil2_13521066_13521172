@@ -18,27 +18,28 @@ if __name__ == "__main__":
     listOfDotDnC.copy(listOfDotBF)
     listOfDotBF.printArr()
     ## Calculate Shortest Distance, time, etc ##
-    # Brute Force
-    algorithm.bruteForceShortestDistance(listOfDotBF)
-    print(listOfDotBF.getNStep())
-    print(listOfDotBF.getSolvingTime(), "s")
-    
     # Divide and Conquer
     algorithm.divideAndConquerShortestDistance(listOfDotDnC)
     print(listOfDotDnC.getNStep())
     print(listOfDotDnC.getSolvingTime(), "s")
+    # Brute Force
+    algorithm.bruteForceShortestDistance(listOfDotBF)
+    print(listOfDotBF.getNStep())
+    print(listOfDotBF.getSolvingTime(), "s")
 
     ### Output ###
 
     ## Sepasang Titik Terdekat dan Jaraknya ##
     # Divide and Conquer
     print("Divide and Conquer")
+    print(listOfDotDnC.getClosestIndexes())
     print("Closest Points: ", "(", listOfDotDnC.getClosestPoints()
           [0].getCoordinate(), ",", listOfDotDnC.getClosestPoints()[1].getCoordinate(), ")")
     print("Distance:", listOfDotDnC.getShortestDistance())
 
     # Brute Force
     print("Brute Force")
+    print(listOfDotDnC.getClosestIndexes())
     print("Closest Points: ", "(", listOfDotBF.getClosestPoints()
           [0].getCoordinate(), ",", listOfDotBF.getClosestPoints()[1].getCoordinate(), ")")
     print("Distance:", listOfDotBF.getShortestDistance())
@@ -56,7 +57,7 @@ if __name__ == "__main__":
     # Divide and Conquer
     print("Execution Time")
     print("Divide and Conquer:", listOfDotDnC.getSolvingTime(), "s")
-    
+
     # Brute Force
     print("Execution Time")
     print("Brute Force:", listOfDotBF.getSolvingTime(), "s")
