@@ -73,6 +73,7 @@ def bruteForceShortestDistance(listOfDot):
                     shortest_distance = distance
                     closest_indexes[0] = i
                     closest_indexes[1] = j
+                    print(closest_indexes)
     exec_time = time.time() - start_time
     listOfDot.setShortestDistance(shortest_distance)
     listOfDot.setClosestIndexes(closest_indexes[0], closest_indexes[1])
@@ -150,8 +151,6 @@ def divideAndConquerShortestDistance(listOfDot):
         start_time = time.time()
         shortest_distance, closest_indexes_result, num_step = searchShortestPartition(
             arrOfDot, 0, listOfDot.getNDots()-1)
-        closest_indexes[0] = closest_indexes_result[0]
-        closest_indexes[1] = closest_indexes_result[1]
     else:
         start_time = time.time()
         shortest_distance = 0
