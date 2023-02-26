@@ -71,17 +71,13 @@ def bruteForceShortestDistance(listOfDot):
                 num_step += 1
                 distance = calculateDistance(arrOfDot[i], arrOfDot[j])
                 if (distance < shortest_distance):
-
                     shortest_distance = distance
-                    print("Shortest distance BF: ")
-
                     closest_indexes[0] = i
                     closest_indexes[1] = j
-                    print(closest_indexes)
+        listOfDot.getArrOfDot()[closest_indexes[0]].setColor("red")
+        listOfDot.getArrOfDot()[closest_indexes[1]].setColor("red")
     exec_time = time.time() - start_time
     listOfDot.setShortestDistance(shortest_distance)
-    print("Final: ", closest_indexes)
-
     listOfDot.setClosestIndexes(closest_indexes[0], closest_indexes[1])
     listOfDot.setNStep(num_step)
     listOfDot.setSolvingTime(exec_time)
@@ -160,6 +156,8 @@ def divideAndConquerShortestDistance(listOfDot):
         start_time = time.time()
         shortest_distance, closest_indexes, num_step = searchShortestPartition(
             arrOfDot, 0, listOfDot.getNDots()-1)
+        listOfDot.getArrOfDot()[closest_indexes[0]].setColor("red")
+        listOfDot.getArrOfDot()[closest_indexes[1]].setColor("red")
     else:
         print("Jumlah titik kurang")
         start_time = time.time()
