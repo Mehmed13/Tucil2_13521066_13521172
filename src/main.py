@@ -20,12 +20,8 @@ if __name__ == "__main__":
     ## Calculate Shortest Distance, time, etc ##
     # Divide and Conquer
     algorithm.divideAndConquerShortestDistance(listOfDotDnC)
-    print(listOfDotDnC.getNStep())
-    print(listOfDotDnC.getSolvingTime(), "s")
     # Brute Force
     algorithm.bruteForceShortestDistance(listOfDotBF)
-    print(listOfDotBF.getNStep())
-    print(listOfDotBF.getSolvingTime(), "s")
 
     ### Output ###
 
@@ -39,7 +35,7 @@ if __name__ == "__main__":
 
     # Brute Force
     print("Brute Force")
-    print(listOfDotDnC.getClosestIndexes())
+    print(listOfDotBF.getClosestIndexes())
     print("Closest Points: ", "(", listOfDotBF.getClosestPoints()
           [0].getCoordinate(), ",", listOfDotBF.getClosestPoints()[1].getCoordinate(), ")")
     print("Distance:", listOfDotBF.getShortestDistance())

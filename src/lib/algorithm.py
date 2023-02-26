@@ -54,7 +54,6 @@ def calculateDistance(dot1, dot2):
 
 # Fungsi untuk mencari shortest distance dengan algoritma brute force
 
-
 def bruteForceShortestDistance(listOfDot):
     arrOfDot = listOfDot.getArrOfDot()
     shortest_distance = 0
@@ -71,29 +70,19 @@ def bruteForceShortestDistance(listOfDot):
                 num_step += 1
                 distance = calculateDistance(arrOfDot[i], arrOfDot[j])
                 if (distance < shortest_distance):
-
                     shortest_distance = distance
-                    print("Shortest distance BF: ")
-
                     closest_indexes[0] = i
                     closest_indexes[1] = j
-                    print(closest_indexes)
     exec_time = time.time() - start_time
     listOfDot.setShortestDistance(shortest_distance)
-    print("Final: ", closest_indexes)
-
     listOfDot.setClosestIndexes(closest_indexes[0], closest_indexes[1])
     listOfDot.setNStep(num_step)
     listOfDot.setSolvingTime(exec_time)
-    print("Brute Force Done")
 
 
 def searchShortestPartition(arrOfDot, i, j, numStep=0):
     # Diasumsikan i adalah indeks awal partisi dan j indeks akhir partisi
-    if (j-i == 0):
-        print("Hanya 1 titik dalam partisi")
-        return 1e6, [-1, -1], numStep
-    elif (j-i == 1):  # Hanya ada 1 pasang titik
+    if (j-i == 1):  # Hanya ada 1 pasang titik
         # kembalikan tuple berisi shortest distance dan closest index
         return calculateDistance(arrOfDot[i], arrOfDot[j]), [i, j], numStep+1
     elif (j-i == 2):  # Ada 3 titik (penanganan kasus ganjil)
@@ -116,8 +105,6 @@ def searchShortestPartition(arrOfDot, i, j, numStep=0):
             arrOfDot, i, mid, numStep)
         dist2, closestIndex2, numStep = searchShortestPartition(
             arrOfDot, mid+1, j, numStep)
-        minDist = -1
-        closestIndex = [-1, -1]
         if (dist1 <= dist2):
             minDist = dist1
             closestIndex = closestIndex1
@@ -140,28 +127,32 @@ def searchShortestPartition(arrOfDot, i, j, numStep=0):
                         break
                 if (inRange):
                     dist3 = calculateDistance(arrOfDot[p], arrOfDot[q])
+                    print("Mid dist calculated")
                     numStep += 1
                     if (dist3 < minDist):
                         minDist = dist3
-                        closestIndex = [p, q]
+                        closestIndex[0] = p
+                        closestIndex[1] = q
                 q += 1
             p -= 1
+        print(closestIndex)
         return minDist, closestIndex, numStep
 
 
 def divideAndConquerShortestDistance(listOfDot):
     arrOfDot = listOfDot.getArrOfDot()
     shortest_distance = 0
-    closest_indexes = [-1, -1]
+    closest_indexes = [0, 0]
     num_step = 0
 
     if (len(arrOfDot) > 1):
         sortArrOfDot(arrOfDot)
         start_time = time.time()
-        shortest_distance, closest_indexes, num_step = searchShortestPartition(
+        shortest_distance, closest_indexes_result, num_step = searchShortestPartition(
             arrOfDot, 0, listOfDot.getNDots()-1)
+        closest_indexes[0] = closest_indexes_result[0]
+        closest_indexes[1] = closest_indexes_result[1]
     else:
-        print("Jumlah titik kurang")
         start_time = time.time()
         shortest_distance = 0
     exec_time = time.time() - start_time
@@ -169,4 +160,3 @@ def divideAndConquerShortestDistance(listOfDot):
     listOfDot.setClosestIndexes(closest_indexes[0], closest_indexes[1])
     listOfDot.setNStep(num_step)
     listOfDot.setSolvingTime(exec_time)
-    print("Div and conquer done")

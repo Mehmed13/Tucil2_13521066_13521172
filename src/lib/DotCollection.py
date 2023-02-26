@@ -2,31 +2,27 @@ from . import Dot
 
 
 class DotCollection:
-    arrOfDot = []
-    nDots = 0
-    solvingTime = 0
-    nStep = 0
-    closestIndexes = [-1, -1]
-    closestPoints = []
-    shortest_distance = 0
-
     # Insert dot
     def __init__(self, *args):  # default (), user-defined (nDots, dim)
+        self.arrOfDot = []
+        self.nDots = 0
+        self.solvingTime = 0
+        self.nStep = 0
+        self.closestIndexes = [0, 0]
+        self.closestPoints = []
+        self.shortest_distance = 0
         if (len(args) == 2):
             print("Collection created")
             self.nDots = args[0]
             for i in range(self.nDots):
                 self.arrOfDot.append(Dot.Dot(args[1]))
-        else:
-            self.arrOfDot = []
-            self.nDots = 0
+    
     # mengcopy nilai
-
     def copy(self, listOfDot):
         print("Copy Collection created")
         listOfDot.nDots = self.nDots
-        for i in range(self.nDots):
-            listOfDot.arrOfDot.append(self.arrOfDot[i])
+        for i in self.arrOfDot:
+            listOfDot.arrOfDot.append(i)
 
     def addDot(self, d):
         self.arrOfDot.append(d)
