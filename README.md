@@ -24,4 +24,5 @@ Buka file main.py di dalam folder src memakai Visual Studio Code lalu tekan tomb
 
 # Anggota
 Muhammad Fadhil Amri / 13521066
+
 Nathan Tenka / 13521172
