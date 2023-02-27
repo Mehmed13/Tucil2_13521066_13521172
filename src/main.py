@@ -5,8 +5,14 @@ from lib import visualizer
 
 if __name__ == "__main__":
     ### Input ###
-    n = int(input("Masukkan banyak titik (n): "))
-    nDim = int(input("Masukkan dimensi titik (nDim): "))
+    valid = False
+    while (not(valid)) :
+        n = int(input("Masukkan banyak titik (n): "))
+        nDim = int(input("Masukkan dimensi titik (nDim): "))
+        if (n <= 1 or nDim < 1) :
+            print("Masukan tidak valid. Pastikan banyak titik > 1 dan dimensi titik >= 1")
+        else :
+            valid = True
 
     ### Process ###
 
@@ -24,18 +30,53 @@ if __name__ == "__main__":
     algorithm.bruteForceShortestDistance(listOfDotBF)
 
     ### Output ###
+    
+    choice = input("Simpan output ke file ? Y/N\n")
+    if (choice == 'Y') :
+        fileName = input("Masukkan nama file : ")
+        f = open(fileName, "w", encoding="utf-8")
+        f.write("Titik-titik :\n")
+        listOfDotBF.printArrToFile(f)
+        f.write("\n")
+        # Divide and Conquer
+        f.write("Hasil :\n")
+        f.write("Divide and Conquer\n")
+        f.write("Closest Points: (" + str(listOfDotDnC.getClosestPoints()
+            [0].getCoordinate()) + "," + str(listOfDotDnC.getClosestPoints()[1].getCoordinate())+ ")\n")
+        f.write("Distance: "+ str(listOfDotDnC.getShortestDistance()) + "\n")
+
+        # Brute Force
+        f.write("Brute Force\n")
+        f.write("Closest Points: ("+ str(listOfDotBF.getClosestPoints()
+            [0].getCoordinate())+ "," + str(listOfDotBF.getClosestPoints()[1].getCoordinate())+ ")\n")
+        f.write("Distance: "+ str(listOfDotBF.getShortestDistance()) + "\n")
+
+        ## Banyak Operasi Perhitungan Rumus Euclidean ##
+        # Divide and Conquer
+        f.write("N perhitungan\n")
+        f.write("Divide and Conquer: "+ str(listOfDotDnC.getNStep()) + "\n")
+
+        # Brute Force
+        f.write("Brute Force: "+ str(listOfDotBF.getNStep()) + "\n")
+
+        ## Execution Time (Spesifikasikan komputer yang digunakan) ##
+        # Divide and Conquer
+        f.write("Execution Time\n")
+        f.write("Divide and Conquer: "+ str(listOfDotDnC.getSolvingTime())+ "s\n")
+
+        # Brute Force
+        f.write("Brute Force: "+ str(listOfDotBF.getSolvingTime())+ "s\n")
+        f.close()
 
     ## Sepasang Titik Terdekat dan Jaraknya ##
     # Divide and Conquer
     print("Divide and Conquer")
-    print(listOfDotDnC.getClosestIndexes())
     print("Closest Points: ", "(", listOfDotDnC.getClosestPoints()
           [0].getCoordinate(), ",", listOfDotDnC.getClosestPoints()[1].getCoordinate(), ")")
     print("Distance: ", listOfDotDnC.getShortestDistance())
 
     # Brute Force
     print("Brute Force")
-    print(listOfDotBF.getClosestIndexes())
     print("Closest Points: ", "(", listOfDotBF.getClosestPoints()
           [0].getCoordinate(), ",", listOfDotBF.getClosestPoints()[1].getCoordinate(), ")")
     print("Distance: ", listOfDotBF.getShortestDistance())

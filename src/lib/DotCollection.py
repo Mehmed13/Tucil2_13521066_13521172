@@ -64,6 +64,10 @@ class DotCollection:
     def printArr(self):
         for dot in self.arrOfDot:
             print(dot.getCoordinate())
+    
+    def printArrToFile(self, file):
+        for dot in self.arrOfDot:
+            file.write(str(dot.getCoordinate()) + "\n")
 
     def getClosestPoints(self):
         return (self.arrOfDot[self.closestIndexes[0]], self.arrOfDot[self.closestIndexes[1]])

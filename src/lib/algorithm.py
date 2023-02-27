@@ -86,7 +86,6 @@ def bruteForceShortestDistance(listOfDot):
     listOfDot.setClosestIndexes(closest_indexes[0], closest_indexes[1])
     listOfDot.setNStep(num_step)
     listOfDot.setSolvingTime(exec_time)
-    print("Brute Force Done")
 
 
 def searchShortestPartition(arrOfDot, i, j, numStep=0):
