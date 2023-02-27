@@ -1,7 +1,11 @@
 # Tucil2_13521066_13521172
 Tucil 2 tentang penerapan algoritma divide and conquer dalam menentukan jarak terdekat antara dua buah titik.
 
-Algoritma Pencarian Titik Terdekat :
+# Anggota :
+Muhammad Fadhil Amri / 13521066
+Nathan Tenka / 13521172
+
+# Algoritma Pencarian Titik Terdekat :
 1. Terima banyak titik, banyak dimensi, dan masing-masing titik.
 2. Urutkan tiap titik berdasarkan posisinya di salah satu sumbu. Dalam program ini kami mengurutkan titik berdasarkan posisinya pada sumbu pertama (sumbu X).
 3. Bila jumlah titik hanya dua atau tiga, langsung hitung jarak antar masing-masing titik dan kembalikan jarak terkecilnya.
