@@ -11,16 +11,16 @@ Algoritma Pencarian Titik Terdekat :
 7. Jika jaraknya lebih kecil dari d, simpan sebagai nilai d yang baru.
 
 # Requirement Program
-1. Python (penulis menggunakan versi 3.9.5+)
+1. Python (penulis menggunakan versi 3.9.5 dan 3.10.6)
+2. matplotlib (penulis menggunakan versi 1.16.0)
 
 # Cara kompilasi
 Buka file main.py di dalam folder src memakai Visual Studio Code lalu tekan tombol F5 untuk melakukan kompilasi sekaligus menjalankan program.
 
 # Cara menjalankan program
-1. Buka file main.py di dalam folder src.
-2. Tekan tombol F5 untuk melakukan kompilasi dan menjalankan program.
-3. Masukkan jumlah titik dan dimensi yang diinginkan.
-4. Apabila ingin menyimpan output ke dalam file, ketik 'Y' lalu masukkan nama file beserta extensionnya.
+1. Lakukan kompilasi terhadap file main.py seperti yang disebutkan di atas atau buka direktori bin melalui terminal dan ketik ./main.
+2. Masukkan jumlah titik dan dimensi yang diinginkan.
+3. Apabila ingin menyimpan output ke dalam file, ketik 'Y' lalu masukkan nama file beserta extensionnya.
 
 # Anggota
 Muhammad Fadhil Amri / 13521066
