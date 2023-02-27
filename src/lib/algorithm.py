@@ -1,6 +1,5 @@
 import math
 import time
-import random
 
 
 def swap(arrOfDot, a, b):
@@ -8,13 +7,6 @@ def swap(arrOfDot, a, b):
     arrOfDot[a] = arrOfDot[b]
     arrOfDot[b] = temp
 
-# def isArrSorted(arrOfDot) :
-#     for i in range(0, len(arrOfDot)-1) :
-#         if (arrOfDot[i].getCoordinate()[0] > arrOfDot[i+1].getCoordinate()[0]) :
-#             print("Not sorted correctly")
-#             return
-#     print("Sorted correctly")
-#     return
 
 # Sort arrOfDot berdasarkan coordinate[0] (sumbu X), memakai algoritma quicksort dengan pemilihan pivot elemen tengah
 def partition(arrOfDot, i, j, axis):
@@ -28,11 +20,11 @@ def partition(arrOfDot, i, j, axis):
             p += 1
         while arrOfDot[q].getCoordinate()[axis] > pivot:
             q -= 1
-        if (p < q) :
+        if (p < q):
             swap(arrOfDot, p, q)
             p += 1
             q -= 1
-        else :
+        else:
             break
     return q
 

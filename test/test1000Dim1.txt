@@ -1,0 +1,15 @@
+Divide and Conquer
+Closest Points: ([-1034.9488657749826],[-1034.9479705850936])
+Distance: 0.0008951898889790755
+Brute Force
+Closest Points: ([-1034.9479705850936],[-1034.9488657749826])
+Distance: 0.0008951898889790755
+N perhitungan
+Divide and Conquer: 631
+Brute Force: 499500
+Execution Time
+Divide and Conquer: 0.0020198822021484375s
+Brute Force: 0.6235730648040771s
+Computer Model  
+82FE   
+
