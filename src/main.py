@@ -1,7 +1,7 @@
 from lib import DotCollection
 from lib import algorithm
 from lib import visualizer
-
+import subprocess
 
 if __name__ == "__main__":
     ### Input ###
@@ -19,10 +19,8 @@ if __name__ == "__main__":
     ## Generating Dots ##
     listOfDotDnC = DotCollection.DotCollection(n, nDim)
     # algorithm.sortArrOfDot(listOfDotDnC.getArrOfDot())
-    listOfDotDnC.printArr()
     listOfDotBF = DotCollection.DotCollection()
     listOfDotDnC.copy(listOfDotBF)
-    listOfDotBF.printArr()
     ## Calculate Shortest Distance, time, etc ##
     # Divide and Conquer
     algorithm.divideAndConquerShortestDistance(listOfDotDnC)
@@ -31,15 +29,13 @@ if __name__ == "__main__":
 
     ### Output ###
     
+    getModel = subprocess.Popen(['wmic', 'computersystem', 'get', 'model'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    model = getModel.stdout.read().decode()
     choice = input("Simpan output ke file ? Y/N\n")
     if (choice == 'Y') :
         fileName = input("Masukkan nama file : ")
         f = open(fileName, "w", encoding="utf-8")
-        f.write("Titik-titik :\n")
-        listOfDotBF.printArrToFile(f)
-        f.write("\n")
         # Divide and Conquer
-        f.write("Hasil :\n")
         f.write("Divide and Conquer\n")
         f.write("Closest Points: (" + str(listOfDotDnC.getClosestPoints()
             [0].getCoordinate()) + "," + str(listOfDotDnC.getClosestPoints()[1].getCoordinate())+ ")\n")
@@ -66,6 +62,9 @@ if __name__ == "__main__":
 
         # Brute Force
         f.write("Brute Force: "+ str(listOfDotBF.getSolvingTime())+ "s\n")
+        # Komputer yang digunakan
+        f.write("Computer ")
+        f.write(model)
         f.close()
 
     ## Sepasang Titik Terdekat dan Jaraknya ##
@@ -96,6 +95,10 @@ if __name__ == "__main__":
 
     # Brute Force
     print("Brute Force: ", listOfDotBF.getSolvingTime(), "s")
+
+    # Komputer yang digunakan
+    print("Computer", end=" ")
+    print(model)
 
     ## Visualisasi titik ##
     if (nDim == 3):  # 3D

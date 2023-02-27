@@ -12,14 +12,12 @@ class DotCollection:
         self.closestPoints = []
         self.shortest_distance = 0
         if (len(args) == 2):
-            print("Collection created")
             self.nDots = args[0]
             for i in range(self.nDots):
                 self.arrOfDot.append(Dot.Dot(args[1]))
     
     # mengcopy nilai
     def copy(self, listOfDot):
-        print("Copy Collection created")
         listOfDot.nDots = self.nDots
         for i in self.arrOfDot:
             listOfDot.arrOfDot.append(i)
@@ -60,14 +58,6 @@ class DotCollection:
 
     def getShortestDistance(self):
         return self.shortest_distance
-
-    def printArr(self):
-        for dot in self.arrOfDot:
-            print(dot.getCoordinate())
-    
-    def printArrToFile(self, file):
-        for dot in self.arrOfDot:
-            file.write(str(dot.getCoordinate()) + "\n")
 
     def getClosestPoints(self):
         return (self.arrOfDot[self.closestIndexes[0]], self.arrOfDot[self.closestIndexes[1]])
