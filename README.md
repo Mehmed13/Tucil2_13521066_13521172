@@ -1,11 +1,7 @@
 # Tucil2_13521066_13521172
 Tucil 2 tentang penerapan algoritma divide and conquer dalam menentukan jarak terdekat antara dua buah titik.
 
-# Anggota
-Muhammad Fadhil Amri / 13521066
-Nathan Tenka / 13521172
-
-# Algoritma Pencarian Titik Terdekat
+Algoritma Pencarian Titik Terdekat :
 1. Terima banyak titik, banyak dimensi, dan masing-masing titik.
 2. Urutkan tiap titik berdasarkan posisinya di salah satu sumbu. Dalam program ini kami mengurutkan titik berdasarkan posisinya pada sumbu pertama (sumbu X).
 3. Bila jumlah titik hanya dua atau tiga, langsung hitung jarak antar masing-masing titik dan kembalikan jarak terkecilnya.
@@ -25,3 +21,7 @@ Buka file main.py di dalam folder src memakai Visual Studio Code lalu tekan tomb
 2. Tekan tombol F5 untuk melakukan kompilasi dan menjalankan program.
 3. Masukkan jumlah titik dan dimensi yang diinginkan.
 4. Apabila ingin menyimpan output ke dalam file, ketik 'Y' lalu masukkan nama file beserta extensionnya.
+
+# Anggota
+Muhammad Fadhil Amri / 13521066
+Nathan Tenka / 13521172
