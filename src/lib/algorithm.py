@@ -8,27 +8,32 @@ def swap(arrOfDot, a, b):
     arrOfDot[a] = arrOfDot[b]
     arrOfDot[b] = temp
 
-# Sort arrOfDot berdasarkan coordinate[0] (sumbu X), memakai algoritma quicksort versi 2 dengan pemilihan pivot selalu elemen pertama
+# def isArrSorted(arrOfDot) :
+#     for i in range(0, len(arrOfDot)-1) :
+#         if (arrOfDot[i].getCoordinate()[0] > arrOfDot[i+1].getCoordinate()[0]) :
+#             print("Not sorted correctly")
+#             return
+#     print("Sorted correctly")
+#     return
 
-
+# Sort arrOfDot berdasarkan coordinate[0] (sumbu X), memakai algoritma quicksort dengan pemilihan pivot elemen tengah
 def partition(arrOfDot, i, j, axis):
     # Ambil pivot dari elemen acak
-    pivotIndex = random.randint(i, j)
-    # Tukar dengan elemen pertama
-    swap(arrOfDot, i, pivotIndex)
-    pivot = arrOfDot[i].getCoordinate()[axis]
-    p = i+1
+    pivotIndex = (i+j)//2
+    pivot = arrOfDot[pivotIndex].getCoordinate()[axis]
+    p = i
     q = j
-    while (p < q):
-        while p < j and arrOfDot[p].getCoordinate()[axis] < pivot:
+    while True:
+        while arrOfDot[p].getCoordinate()[axis] < pivot:
             p += 1
         while arrOfDot[q].getCoordinate()[axis] > pivot:
             q -= 1
-
-        if (p < q):
+        if (p < q) :
             swap(arrOfDot, p, q)
-
-    swap(arrOfDot, i, q)
+            p += 1
+            q -= 1
+        else :
+            break
     return q
 
 
@@ -37,7 +42,7 @@ def sortArrOfDot(arrOfDot, i=0, j=-1, axis=0):
         j = len(arrOfDot)-1
     if (i < j):
         pos = partition(arrOfDot, i, j, axis)
-        sortArrOfDot(arrOfDot, i, pos-1, axis)
+        sortArrOfDot(arrOfDot, i, pos, axis)
         sortArrOfDot(arrOfDot, pos+1, j, axis)
 
 # Fungsi Untuk menghitung jarak antara dua buah titik
@@ -53,6 +58,7 @@ def calculateDistance(dot1, dot2):
     return distance
 
 # Fungsi untuk mencari shortest distance dengan algoritma brute force
+
 
 def bruteForceShortestDistance(listOfDot):
     arrOfDot = listOfDot.getArrOfDot()
@@ -73,12 +79,14 @@ def bruteForceShortestDistance(listOfDot):
                     shortest_distance = distance
                     closest_indexes[0] = i
                     closest_indexes[1] = j
-                    print(closest_indexes)
+        listOfDot.getArrOfDot()[closest_indexes[0]].setColor("red")
+        listOfDot.getArrOfDot()[closest_indexes[1]].setColor("red")
     exec_time = time.time() - start_time
     listOfDot.setShortestDistance(shortest_distance)
     listOfDot.setClosestIndexes(closest_indexes[0], closest_indexes[1])
     listOfDot.setNStep(num_step)
     listOfDot.setSolvingTime(exec_time)
+    print("Brute Force Done")
 
 
 def searchShortestPartition(arrOfDot, i, j, numStep=0):
@@ -128,15 +136,12 @@ def searchShortestPartition(arrOfDot, i, j, numStep=0):
                         break
                 if (inRange):
                     dist3 = calculateDistance(arrOfDot[p], arrOfDot[q])
-                    print("Mid dist calculated")
                     numStep += 1
                     if (dist3 < minDist):
                         minDist = dist3
-                        closestIndex[0] = p
-                        closestIndex[1] = q
+                        closestIndex = [p, q]
                 q += 1
             p -= 1
-        print(closestIndex)
         return minDist, closestIndex, numStep
 
 
@@ -149,8 +154,10 @@ def divideAndConquerShortestDistance(listOfDot):
     if (len(arrOfDot) > 1):
         sortArrOfDot(arrOfDot)
         start_time = time.time()
-        shortest_distance, closest_indexes_result, num_step = searchShortestPartition(
+        shortest_distance, closest_indexes, num_step = searchShortestPartition(
             arrOfDot, 0, listOfDot.getNDots()-1)
+        listOfDot.getArrOfDot()[closest_indexes[0]].setColor("red")
+        listOfDot.getArrOfDot()[closest_indexes[1]].setColor("red")
     else:
         start_time = time.time()
         shortest_distance = 0

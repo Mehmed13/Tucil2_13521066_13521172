@@ -1,5 +1,4 @@
 from lib import DotCollection
-from lib import Dot
 from lib import algorithm
 from lib import visualizer
 
