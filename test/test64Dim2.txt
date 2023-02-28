@@ -1,0 +1,15 @@
+Divide and Conquer
+Closest Points: ([-5349.341172137807, 2782.6714636766956],[-5030.7515135772655, 2826.1320809613935])
+Distance: 321.54034862904746
+Brute Force
+Closest Points: ([-5349.341172137807, 2782.6714636766956],[-5030.7515135772655, 2826.1320809613935])
+Distance: 321.54034862904746
+N perhitungan
+Divide and Conquer: 50
+Brute Force: 2016
+Execution Time
+Divide and Conquer: 0.0009996891021728516s
+Brute Force: 0.011523246765136719s
+Computer Model               
+Zephyrus M GM501GM  
+
